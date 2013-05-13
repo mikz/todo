@@ -1,4 +1,7 @@
 Todo::Application.routes.draw do
+  resources :todo_items
+
+
   resources :projects
 
 
