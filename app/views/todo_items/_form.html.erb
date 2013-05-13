@@ -15,13 +15,16 @@
     <%= f.label :title %><br />
     <%= f.text_field :title %>
   </div>
-  <div class="field">
-    <%= f.label :state %><br />
-    <%= f.text_field :state %>
-  </div>
+  <% if f.object.persisted? %>
+    <div class="field">
+      <%= f.label :state %><br />
+      <%= f.select :state, TodoItem.available_states %>
+    </div>
+  <% end %>
   <div class="field">
     <%= f.label :project %><br />
-    <%= f.text_field :project %>
+    <%= f.collection_select :project_id, f.object.available_projects, :id, :name, :include_blank => true %>
+    <p>Missing project? Create <%= link_to 'new one', new_project_path %></p>
   </div>
   <div class="actions">
     <%= f.submit %>

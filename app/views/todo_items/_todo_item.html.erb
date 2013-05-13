@@ -1,0 +1,8 @@
+<tr class="<%= todo_item.state %>">
+  <td><%= todo_item.title %></td>
+  <td><%= todo_item.state %></td>
+  <td><%= link_to todo_item.project.name, todo_item.project %></td>
+  <td><%= link_to 'Show', todo_item %></td>
+  <td><%= link_to 'Edit', edit_todo_item_path(todo_item) %></td>
+  <td><%= link_to 'Destroy', todo_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</td>

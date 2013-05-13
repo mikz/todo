@@ -1,11 +1,23 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  title: MyString
-  state: MyString
-  project: 
+closed_old:
+  title: Old Item
+  state: closed
+  project: old
+  created_at: <%= 1.year.ago.to_s(:db) %>
 
-two:
-  title: MyString
-  state: MyString
-  project: 
+opened_old:
+  title: Old Item (again)
+  state: open
+  project: old
+  created_at: <%= 1.year.ago.to_s(:db) %>
+
+closed_fresh:
+  title: Fresh Item
+  state: closed
+  project: fresh
+
+opened_fresh:
+  title: Fresh Item (not yet)
+  state: open
+  project: fresh

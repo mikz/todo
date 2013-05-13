@@ -13,3 +13,7 @@
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>
+
+<h2>ToDo items <%= link_to 'new one', new_project_todo_item_path(@project) %></h2>
+
+<%= render 'todo_items/table', todo_items: @project.todo_items %>

@@ -18,6 +18,8 @@ end
 
 gem 'jquery-rails'
 
+gem 'state_machine'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
@@ -27,8 +29,12 @@ gem 'jquery-rails'
 # Use unicorn as the app server
 # gem 'unicorn'
 
+gem 'thin'
+
 # Deploy with Capistrano
 # gem 'capistrano'
 
-# To use debugger
-# gem 'debugger'
+group :development, :test do
+  gem 'pry-debugger'
+  gem 'pry-rails'
+end

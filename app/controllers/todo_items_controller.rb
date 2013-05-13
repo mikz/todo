@@ -25,6 +25,7 @@ class TodoItemsController < ApplicationController
   # GET /todo_items/new.json
   def new
     @todo_item = TodoItem.new
+    @todo_item.project = project_scope
 
     respond_to do |format|
       format.html # new.html.erb
@@ -78,6 +79,14 @@ class TodoItemsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to todo_items_url }
       format.json { head :no_content }
+    end
+  end
+
+  private
+
+  def project_scope
+    if project_id = params[:project_id]
+      Project.find(project_id)
     end
   end
 end

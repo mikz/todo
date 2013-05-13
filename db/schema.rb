@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130513170430) do
+ActiveRecord::Schema.define(:version => 20130513173602) do
 
   create_table "projects", :force => true do |t|
     t.string   "name"
@@ -22,10 +22,10 @@ ActiveRecord::Schema.define(:version => 20130513170430) do
 
   create_table "todo_items", :force => true do |t|
     t.string   "title"
-    t.string   "state"
+    t.string   "state",      :default => "open"
     t.integer  "project_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
   end
 
   add_index "todo_items", ["project_id"], :name => "index_todo_items_on_project_id"

@@ -2,7 +2,7 @@ require 'test_helper'
 
 class TodoItemsControllerTest < ActionController::TestCase
   setup do
-    @todo_item = todo_items(:one)
+    @todo_item = todo_items(:opened_fresh)
   end
 
   test "should get index" do
@@ -18,7 +18,7 @@ class TodoItemsControllerTest < ActionController::TestCase
 
   test "should create todo_item" do
     assert_difference('TodoItem.count') do
-      post :create, todo_item: { state: @todo_item.state, title: @todo_item.title }
+      post :create, todo_item: { state: @todo_item.state, title: @todo_item.title, project_id: projects(:fresh).id }
     end
 
     assert_redirected_to todo_item_path(assigns(:todo_item))
